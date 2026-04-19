@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-// import './App.css'
-import TestCompo from "./components/testCompo"
+import { Provider } from "react-redux"
+import { store } from './app/store'
+import { PagesRoutes } from "./constent"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <TestCompo/>
+      <Provider store={store}>
+        <PagesRoutes />
+      </Provider>
     </>
   )
 }
