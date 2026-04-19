@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import api from "../utils/API"
 import createTask from "../utils/taskAPI"
+import { TaskList } from "../constent"
 
 const testCompo = () => {
   const [taskData, setTaskData] = useState({
@@ -32,6 +33,8 @@ const testCompo = () => {
       />
       <button onClick={handleCreateTask}>Create Task</button>
 
+
+      <TaskList />
     </div>
   )
 }
