@@ -10,8 +10,9 @@ const TaskList = () => {
         dispatch(fetchTasks())
     }, [])
 
+    
     if (loading) return <p>Loading.....</p>
-    if (!items) return <p>No Items...</p>
+    if (!items.length) return <p>No Items...</p>
     return (
         <div>
             {items.map((task) => (
