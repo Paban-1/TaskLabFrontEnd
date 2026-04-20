@@ -5,7 +5,7 @@ import api from "../../utils/API"
 export const fetchTasks = createAsyncThunk(
     "tasks/fetchTasks",
     async () => {
-        const res = await api.get("task/all")
+        const res = await api.get("/task/all")
         return res.data
     }
 )

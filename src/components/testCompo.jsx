@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import api from "../utils/API"
 import createTask from "../utils/taskAPI"
 import { TaskList } from "../constent"
+import { useDispatch } from 'react-redux'
+import { fetchTasks } from '../features/tasks/taskSlice'
 
 const testCompo = () => {
+  const dispatch = useDispatch()
+
   const [taskData, setTaskData] = useState({
     title: "",
     description: ""
@@ -13,6 +17,11 @@ const testCompo = () => {
     await createTask(
       taskData
     )
+    setTaskData({
+      title: "",
+      description: ""
+    })
+    dispatch(fetchTasks())
   }
 
   return (
