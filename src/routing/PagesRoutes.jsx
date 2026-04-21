@@ -1,12 +1,12 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { TestCompo } from "../constent"
+import { CreateCompo} from "../constent"
 
 const PagesRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<TestCompo />} />
+                <Route path="/" element={<CreateCompo />} />
             </Routes>
         </BrowserRouter>
     )
