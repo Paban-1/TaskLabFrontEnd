@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTasks } from '../features/tasks/taskSlice'
+import {ArrowRight, Notebook} from "lucide-react"
 
 const TaskList = () => {
     const dispatch = useDispatch()
@@ -14,11 +15,14 @@ const TaskList = () => {
     if (loading) return <p>Loading.....</p>
     if (!items.length) return <p>No Items...</p>
     return (
-        <div>
+        <div className='py-4'>
             {items.map((task) => (
-                <div key={task._id}>
-                    <h3>{task.title}</h3>
-                    <p>{task.description}</p>
+                <div key={task._id} className='flex flex-col py-4'>
+                    <div className='bg-gray-800 text-white'>
+                    <h3 className='flex items-center gap-2 py-4'><ArrowRight size={20}/>{task.title}</h3>
+                    <p className='flex items-center gap-2'><Notebook size={20}/>{task.description}</p>
+                    <p className='text-red-400'>{task.flag}</p>
+                    </div>
                 </div>
             ))}
         </div>
