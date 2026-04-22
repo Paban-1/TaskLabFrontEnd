@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTasks, deleteTask } from '../features/tasks/taskSlice'
+import { fetchTasks, deleteTask, updateTask } from '../features/tasks/taskSlice'
 import { ArrowRight, Notebook } from "lucide-react"
-
+import { Link } from "react-router-dom"
 
 const TaskList = () => {
     const dispatch = useDispatch()
@@ -15,8 +15,9 @@ const TaskList = () => {
     const handleDelete = (task) => {
         dispatch(deleteTask(task._id))
         console.log("Deleted", task._id);
-        
+
     }
+
 
 
     if (loading) return <p>Loading.....</p>
@@ -30,6 +31,8 @@ const TaskList = () => {
                         <p className='flex items-center gap-2'><Notebook size={20} />{task.description}</p>
                         <p className='text-red-400'>{task.flag}</p>
                         <button onClick={() => handleDelete(task)} className='bg-red-600 text-white rounded-xl '>Delete</button>
+
+                        <Link to={`/edit/${task._id}`}>Edit</Link>
                     </div>
                 </div>
             ))}
