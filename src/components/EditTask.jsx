@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { updateTask } from '../features/tasks/taskSlice'
 import { useParams, useNavigate } from 'react-router-dom'
 import api from '../utils/API'
+import { TaskForm } from "../constent"
 
 const EditTask = () => {
     const dispatch = useDispatch()
@@ -23,14 +24,16 @@ const EditTask = () => {
         fetchTask()
     }, [id])
 
-    const handleEdit = (id) => {
+    const handleEdit = (data) => {
         dispatch(updateTask({
             id: task._id,
             data: {
-                title: task.title,
-                description: task.description
+                title: data.title,
+                description: data.description
             }
         }));
+        console.log("updated data", data);
+
         naviaget('/create')
         // console.log("Done");
     }
@@ -39,12 +42,16 @@ const EditTask = () => {
         <div className='bg-zinc-500'>
 
             <h2>Task ID:{id}</h2>
-            <input type="text" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} className='bg-green-800' />
 
-            <input type="text" value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })} className='bg-green-800' />
+            <TaskForm initialData={task} buttonText="Edit" onSubmit={handleEdit} />
+
+            {/* <TaskForm /> */}
+            {/* <input type="text" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} className='bg-green-800' /> */}
+
+            {/* <input type="text" value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })} className='bg-green-800' /> */}
 
 
-            <button onClick={handleEdit}>Done</button>
+            {/* <button onClick={handleEdit}>Done</button> */}
         </div>
     )
 }
