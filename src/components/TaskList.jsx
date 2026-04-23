@@ -15,9 +15,7 @@ const TaskList = () => {
     const handleDelete = (task) => {
         dispatch(deleteTask(task._id))
         console.log("Deleted", task._id);
-
     }
-
 
 
     if (loading) return <p>Loading.....</p>

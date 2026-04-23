@@ -11,7 +11,7 @@ export const fetchTasks = createAsyncThunk(
 )
 
 export const deleteTask = createAsyncThunk(
-    "task/deleteTask",
+    "tasks/deleteTask",
     async (id) => {
         await api.delete(`/task/${id}`)
         return id;
@@ -19,9 +19,9 @@ export const deleteTask = createAsyncThunk(
 )
 
 export const updateTask = createAsyncThunk(
-    "task/updateTask",
+    "tasks/updateTask",
     async ({ id, data }) => {
-        const res = await api.put(`/task/${id}, data`)
+        const res = await api.put(`/task/${id}`, data )
         return res.data
     }
 )
