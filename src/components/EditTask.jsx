@@ -31,7 +31,7 @@ const EditTask = () => {
                 description: task.description
             }
         }));
-        naviaget('/')
+        naviaget('/create')
         // console.log("Done");
     }
 
