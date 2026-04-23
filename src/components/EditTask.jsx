@@ -25,13 +25,14 @@ const EditTask = () => {
 
     const handleEdit = (id) => {
         dispatch(updateTask({
-            id: id,
+            id: task._id,
             data: {
                 title: task.title,
                 description: task.description
             }
-        }))
+        }));
         naviaget('/')
+        // console.log("Done");
     }
 
     return (
@@ -40,7 +41,7 @@ const EditTask = () => {
             <h2>Task ID:{id}</h2>
             <input type="text" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} className='bg-green-800' />
 
-            <input type="text" value={task.description} onChange={(e) => setTask({ ...description, description: e.target.value })} className='bg-green-800' />
+            <input type="text" value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })} className='bg-green-800' />
 
 
             <button onClick={handleEdit}>Done</button>
