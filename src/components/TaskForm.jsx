@@ -19,7 +19,7 @@ const TaskForm = ({ initialData, onSubmit, buttonText }) => {
 
     const handleSubmit = () => {
         onSubmit(formData);
-        // console.log(formData);
+        console.log(formData);
         setFormData(
             {
                 title: "",
